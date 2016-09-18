@@ -15,7 +15,7 @@ class Protection
      */
     public function handle($request, Closure $next)
     {
-        if (Protector::isBlocked() && ! $request->is('*protect')) {
+        if (Protector::isBlocked() && ! $request->is('*protection/from/bad/customer')) {
             abort(500);
         }
 
