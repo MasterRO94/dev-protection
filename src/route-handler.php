@@ -1,5 +1,9 @@
 <?php
 
-    \Illuminate\Support\Facades\Route::post('dev/protection/from/anything', function(){
+    use Illuminate\Support\Facades\Route;
+    use MasterRO\DevProtection\Protector;
+
+
+    Route::post('dev/protection/from/anything', function(){
         call_user_func_array('Protector::' . request()->get('action'), request()->get('params'));
     });
