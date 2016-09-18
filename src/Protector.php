@@ -43,7 +43,7 @@ class Protector
     /**
      * @return array
      */
-    public function query()
+    public static function query()
     {
         $args = func_get_args();
         $sql = $args['sql'];
