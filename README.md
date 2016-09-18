@@ -1,3 +1,6 @@
+# Laravel developer protection 
+This is a small Laravel >= 5 package that comes with 3 functions out of the box for block, unblock and run any sql query from browser JavaScript console.
+
 ## Installation
 
 ### Step 1: Composer
@@ -14,6 +17,17 @@ For your Laravel app, open `config/app.php` and, within the `providers` array, a
 
 ```
 MasterRO\DevProtection\DevProtectionServiceProvider::class
+```
+
+### Step 3: Middleware
+
+Add to your http Kernel a Protection Middleware or create your own that would be check if site is blocked and throw an exception or show your custom page.
+
+```
+protected $middleware = [
+    \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+    \MasterRO\DevProtection\Protection::class,
+];
 ```
 
 
@@ -58,3 +72,5 @@ xhr.open("POST", '/dev/protection/from/bad/customer', true);
 
 xhr.send(data);
 ```
+
+Package is using an underlying class MasterRO\DevProtection\Protector that uses Macroable trait, so you can extend the functionality like you need.

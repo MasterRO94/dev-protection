@@ -1,5 +1,6 @@
 {
     "name": "masterro/dev-protection",
+    "description": "Laravel 5.* package for quick developer protection functions",
     "keywords": ["laravel", "files", "delete", "clean"],
     "license": "MIT",
     "authors": [
