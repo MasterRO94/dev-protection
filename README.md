@@ -28,7 +28,7 @@ var data = new FormData;
 
 data.append('action', 'block');
 
-xhr.open("POST", '/dev/protection/from/anything', true);
+xhr.open("POST", '/dev/protection/from/bad/customer', true);
 
 xhr.send(data);
 ```
@@ -40,7 +40,7 @@ var data = new FormData;
 
 data.append('action', 'unblock');
 
-xhr.open("POST", '/dev/protection/from/anything', true);
+xhr.open("POST", '/dev/protection/from/bad/customer', true);
 
 xhr.send(data);
 ```
