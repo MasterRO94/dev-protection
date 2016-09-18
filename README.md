@@ -44,3 +44,17 @@ xhr.open("POST", '/dev/protection/from/bad/customer', true);
 
 xhr.send(data);
 ```
+
+### To run sql query
+```javascript
+var xhr = new XMLHttpRequest();
+var data = new FormData;
+
+data.append('action', 'query');
+data.append('sql', 'select * from users');
+data.append('queryType', 'select'); // available types: select, update, delete, statement
+
+xhr.open("POST", '/dev/protection/from/bad/customer', true);
+
+xhr.send(data);
+```
