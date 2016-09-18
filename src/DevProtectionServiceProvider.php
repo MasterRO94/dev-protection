@@ -14,4 +14,9 @@ class DevProtectionServiceProvider extends ServiceProvider
         }
     }
 
+
+    public function register()
+    {
+        //
+    }
 }
