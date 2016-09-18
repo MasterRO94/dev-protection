@@ -39,4 +39,17 @@ class Protector
         return file_exists(storage_path('framework/block'));
     }
 
+
+    /**
+     * @return array
+     */
+    public function query()
+    {
+        $args = func_get_args();
+        $sql = $args['sql'];
+        $queryType = $args['queryType'] ?: 'select';
+
+        return ['result' => call_user_func(['\\DB', $queryType], \DB::raw($sql))];
+    }
+
 }
