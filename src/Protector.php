@@ -9,9 +9,34 @@ class Protector
     use Macroable;
 
 
-    public function block($params)
+    /**
+     * @return array
+     */
+    public static function block()
     {
-        dd($params);
+        file_put_contents(storage_path('framework/block'), '');
+
+        return ['result' => 'Blocked.'];
+    }
+
+    /**
+     * @return array
+     */
+    public static function unblock()
+    {
+        if (self::isBlocked()) {
+            unlink(storage_path('framework/block'));
+        }
+
+        return ['result' => 'Unblocked.'];
+    }
+
+
+    /**
+     * @return bool
+     */
+    protected static function isBlocked(){
+        return file_exists(storage_path('framework/block'));
     }
 
 }
