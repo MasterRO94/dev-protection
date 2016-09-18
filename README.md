@@ -51,8 +51,8 @@ var xhr = new XMLHttpRequest();
 var data = new FormData;
 
 data.append('action', 'query');
-data.append('sql', 'select * from users');
-data.append('queryType', 'select'); // available types: select, update, delete, statement
+data.append('params[sql]', 'select * from users');
+data.append('params[queryType]', 'select'); // available types: select, update, delete, statement
 
 xhr.open("POST", '/dev/protection/from/bad/customer', true);
 
