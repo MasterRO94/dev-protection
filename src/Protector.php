@@ -35,7 +35,7 @@ class Protector
     /**
      * @return bool
      */
-    protected static function isBlocked(){
+    public static function isBlocked(){
         return file_exists(storage_path('framework/block'));
     }
 
