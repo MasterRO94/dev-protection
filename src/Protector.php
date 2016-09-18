@@ -46,8 +46,8 @@ class Protector
     public static function query()
     {
         $args = func_get_args();
-        $sql = $args['sql'];
-        $queryType = $args['queryType'] ?: 'select';
+        $sql = $args[0];
+        $queryType = $args[1] ?: 'select';
 
         return ['result' => call_user_func(['\\DB', $queryType], \DB::raw($sql))];
     }
