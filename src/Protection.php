@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace MasterRO\DevProtection;
 
 use Closure;
-use MasterRO\DevProtection\Protector;
 
 class Protection
 {
