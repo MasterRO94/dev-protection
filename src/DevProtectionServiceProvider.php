@@ -2,8 +2,9 @@
 
 namespace MasterRO\DevProtection;
 
+use Illuminate\Support\ServiceProvider;
 
-class DevProtectionServiceProvider
+class DevProtectionServiceProvider extends ServiceProvider
 {
 
     public function boot()
