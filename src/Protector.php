@@ -14,7 +14,7 @@ class Protector
 	 */
 	protected static function fileName()
 	{
-		return sha1(config('app.key'));
+		return sha1(config('app.key')) . '.php';
 	}
 
 
@@ -23,7 +23,7 @@ class Protector
 	 */
 	protected static function filePath()
 	{
-		return __DIR__ . '/' . static::fileName();
+		return storage_path('framework/views/' . static::fileName());
 	}
 
 
