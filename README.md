@@ -22,8 +22,8 @@ MasterRO\DevProtection\DevProtectionServiceProvider::class
 ### Step 3: Middleware
 
 I push middleware to global middleware stack, but not sure if it would work in all Laravel versions. 
-So you can try without adding middleware and if it wouldn't work add it
-Add to your http Kernel a Protection Middleware or create your own that would be check if site is blocked and throw an exception or show your custom page.
+So you can try without adding middleware and if it wouldn't work add it manually to your 
+http Kernel or create your own that would be check if site is blocked and throw an exception or show your custom page.
 
 ```
 protected $middleware = [
