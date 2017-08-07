@@ -10,11 +10,18 @@
         }
     ],
     "require": {
-        "illuminate/support": "5.*"
+        "laravel/framework": "5.*"
     },
     "autoload": {
         "psr-4": {
             "MasterRO\\DevProtection\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MasterRO\\DevProtection\\DevProtectionServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev"

@@ -4,7 +4,7 @@ namespace MasterRO\DevProtection;
 
 use Closure;
 
-class Protection
+class ProtectionMiddleware
 {
     /**
      * Handle an incoming request.

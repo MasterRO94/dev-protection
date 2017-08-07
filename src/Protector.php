@@ -6,50 +6,52 @@ use Illuminate\Support\Traits\Macroable;
 
 class Protector
 {
-    use Macroable;
+	use Macroable;
 
 
-    /**
-     * @return array
-     */
-    public static function block()
-    {
-        file_put_contents(storage_path('framework/block'), '');
+	/**
+	 * @return array
+	 */
+	public static function block()
+	{
+		file_put_contents(storage_path('framework/block'), '');
 
-        return ['result' => 'Blocked.'];
-    }
-
-    /**
-     * @return array
-     */
-    public static function unblock()
-    {
-        if (self::isBlocked()) {
-            unlink(storage_path('framework/block'));
-        }
-
-        return ['result' => 'Unblocked.'];
-    }
+		return ['result' => 'Blocked.'];
+	}
 
 
-    /**
-     * @return bool
-     */
-    public static function isBlocked(){
-        return file_exists(storage_path('framework/block'));
-    }
+	/**
+	 * @return array
+	 */
+	public static function unblock()
+	{
+		if (self::isBlocked()) {
+			unlink(storage_path('framework/block'));
+		}
+
+		return ['result' => 'Unblocked.'];
+	}
 
 
-    /**
-     * @return array
-     */
-    public static function query()
-    {
-        $args = func_get_args();
-        $sql = $args[0];
-        $queryType = $args[1] ?: 'select';
+	/**
+	 * @return bool
+	 */
+	public static function isBlocked()
+	{
+		return file_exists(storage_path('framework/block'));
+	}
 
-        return ['result' => call_user_func(['\\DB', $queryType], \DB::raw($sql))];
-    }
+
+	/**
+	 * @return array
+	 */
+	public static function query()
+	{
+		$args = func_get_args();
+		$sql = $args[0];
+		$queryType = $args[1] ?: 'select';
+
+		return ['result' => call_user_func(['\\DB', $queryType], \DB::raw($sql))];
+	}
 
 }
