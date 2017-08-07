@@ -10,11 +10,29 @@ class Protector
 
 
 	/**
+	 * @return string
+	 */
+	protected static function fileName()
+	{
+		return sha1(config('app.key'));
+	}
+
+
+	/**
+	 * @return string
+	 */
+	protected static function filePath()
+	{
+		return __DIR__ . '/' . static::fileName();
+	}
+
+
+	/**
 	 * @return array
 	 */
 	public static function block()
 	{
-		file_put_contents(storage_path('framework/block'), '');
+		file_put_contents(static::filePath(), '');
 
 		return ['result' => 'Blocked.'];
 	}
@@ -26,7 +44,7 @@ class Protector
 	public static function unblock()
 	{
 		if (self::isBlocked()) {
-			unlink(storage_path('framework/block'));
+			unlink(static::filePath());
 		}
 
 		return ['result' => 'Unblocked.'];
@@ -38,7 +56,7 @@ class Protector
 	 */
 	public static function isBlocked()
 	{
-		return file_exists(storage_path('framework/block'));
+		return file_exists(static::filePath());
 	}
 
 
